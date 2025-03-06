@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destinations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .destination {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+        .destination img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .destination h3 {
+            margin: 15px 0;
+        }
+        .destination p {
+            padding: 0 15px 15px;
+            color: #555;
+        }
+        .destination button {
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .destination button:hover {
+            background-color: #0056b3;
+        }
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqZxOUOPjn06s-OrscSGR0agb7OljSb8s"></script>
+</head>
+<body>
+    <header>Explore Beautiful Destinations</header>
+    <div class="container">
+        <div class="destination">
+            <img src="WhatsApp Image 2025-03-06 at 19.03.41 (2).jpeg" alt="Mumbai">
+            <h3>Mumbai, Maharashtra</h3>
+            <p>The city of lights and love, in Mumbai there's a certain pace, a social life and the thrill of a professional life, and it has rich history.</p>
+            <button id="mumbai-button">Fetch Mumbai Info</button>
+        </div>
+        <!-- Other destinations here -->
+    </div>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // Location: Mumbai
+            const mumbai = { lat: 19.076, lng: 72.8777 };
+            
+            // Map initialization
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: mumbai,
+            });
+
+            // Marker for Mumbai
+            new google.maps.Marker({
+                position: mumbai,
+                map,
+                title: "Mumbai, Maharashtra",
+            });
+        }
+
+        // Attach event listener to the button
+        document.getElementById("mumbai-button").addEventListener("click", function () {
+            // Call the map initialization function
+            initMap();
+        });
+    </script>
+</body>
+</html>
